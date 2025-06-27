@@ -1,0 +1,97 @@
+.scope .tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.scope .info-icon {
+  width: 18px;
+  height: 18px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.scope .info-icon:hover {
+  background-color: #1e7e34;
+  /* transform: scale(1.1); */
+}
+
+.scope .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+  background-color: white;
+  color: #28a745;
+  padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px);
+  border-radius: 8px;
+  font-size: clamp(11px, 2.5vw, 13px);
+  font-weight: 700;
+  font-style: italic;
+  width: max-content;
+  max-width: calc(20vw - 60px);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: clamp(1.2, 1.5vw, 1.4);
+  right: auto;
+}
+
+/* Smart positioning to prevent right overflow */
+.scope .tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .scope .tooltip {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 20px);
+  }
+
+  .scope .tooltip::after {
+    left: 50%;
+    /* margin-left: -6px; */
+  }
+
+  .scope .tooltip {
+    width: 200px;
+    max-width: 60vw;
+    font-size: clamp(10px, 3vw, 12px);
+    padding: clamp(6px, 2vw, 10px) clamp(8px, 3vw, 12px);
+  }
+}
+
+.scope .tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border: 6px solid;
+  border-color: white transparent transparent transparent;
+}
+
+.scope .tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mobile: Focus for accessibility */
+.scope .info-icon:focus + .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
