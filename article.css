@@ -1,0 +1,435 @@
+.scope .tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.scope .info-icon {
+  width: 18px;
+  height: 18px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.scope .info-icon:hover {
+  background-color: #1e7e34;
+  /* transform: scale(1.1); */
+}
+
+.scope .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+  background-color: white;
+  color: #28a745;
+  padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px);
+  border-radius: 8px;
+  font-size: clamp(11px, 2.5vw, 13px);
+  font-weight: 700;
+  font-style: italic;
+  width: max-content;
+  max-width: calc(20vw - 60px);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: clamp(1.2, 1.5vw, 1.4);
+  right: auto;
+}
+
+/* Smart positioning to prevent right overflow */
+.scope .tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .scope .tooltip {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 20px);
+  }
+
+  .scope .tooltip::after {
+    left: 50%;
+    /* margin-left: -6px; */
+  }
+
+  .scope .tooltip {
+    width: 200px;
+    max-width: 60vw;
+    font-size: clamp(10px, 3vw, 12px);
+    padding: clamp(6px, 2vw, 10px) clamp(8px, 3vw, 12px);
+  }
+}
+
+.scope .tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border: 6px solid;
+  border-color: white transparent transparent transparent;
+}
+
+.scope .tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mobile: Focus for accessibility */
+.scope .info-icon:focus + .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.scope {
+  margin: 0;
+  padding: 0.5vw;
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: auto;
+}
+.scope body {
+  margin: 0;
+  padding: 8px;
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: auto;
+}
+.scope header {
+  padding: 1.5rem 1.25rem;
+  margin: 0.25rem 0.75rem;
+}
+.scope header * {
+  text-align: center;
+  margin: 0.25rem auto;
+}
+.scope header h1,
+.scope header h2,
+.scope header h3,
+.scope header h4 {
+  color: #2f438d;
+}
+@media (max-width: 768px) {
+  .scope header h1,
+  .scope header h2,
+  .scope header h3,
+  .scope header h4 {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 490px) and (max-width: 568px) {
+  .scope main .amendments {
+    display: table-cell;
+    border: none;
+  }
+}
+.scope main h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .scope main h3 {
+    font-size: 0.9rem;
+  }
+}
+.scope main hr {
+  max-width: 640px;
+  margin: auto;
+}
+.scope main ::-webkit-scrollbar {
+  width: 0.25rem;
+}
+.scope main ::-webkit-scrollbar-track {
+  background: grey;
+}
+.scope main ::-webkit-scrollbar-thumb {
+  background: white;
+  width: 0.25rem;
+}
+.scope main .example {
+  background-color: bisque;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  margin: 1em 0;
+  overflow-x: scroll;
+}
+.scope main .example h3 {
+  color: black;
+}
+.scope main .example th {
+  text-align: center;
+}
+.scope main .box {
+  min-width: 40vw;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  font-size: small;
+  border-radius: 1rem;
+}
+.scope main .index {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 1rem;
+}
+.scope main .index li {
+  list-style: none;
+}
+@media (max-width: 768px) {
+  .scope main .box {
+    border: 1px solid black;
+  }
+  .scope main .index {
+    border: 1px solid black;
+    padding: 0.5rem;
+  }
+  .scope main .index h3 {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+.scope main .index ol {
+  list-style-type: none;
+  margin-top: 0;
+}
+.scope footer p * {
+  font-style: italic;
+}
+.scope ul.dashed > li::marker {
+  content: '- ';
+}
+.scope ol,
+.scope ul {
+  padding-inline-start: 2rem;
+}
+@media (max-width: 768px) {
+  .scope li::marker {
+    font-size: 0.9rem;
+  }
+}
+.scope img {
+  display: block;
+  margin: 1em auto;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+}
+.scope table {
+  width: 100%;
+  margin: 0.25rem auto;
+  overflow-x: auto;
+  border-spacing: 0;
+  overflow: hidden;
+  border-collapse: collapse;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px #7a7777;
+}
+@media (max-width: 490px) and (max-width: 568px) {
+  .scope table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border: none;
+  }
+  .scope .definition-wrapper table {
+    display: table;
+    overflow-x: visible;
+    white-space: normal;
+    border: initial;
+  }
+}
+.scope table {
+  border: 1px solid #000;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.scope td,
+.scope th {
+  border: 1px solid #9e9393;
+  padding: 0.5rem;
+}
+@media (max-width: 768px) {
+  .scope td,
+  .scope th {
+    font-size: 0.9rem;
+  }
+}
+.scope td {
+  text-align: left;
+}
+.scope th {
+  text-align: center;
+}
+.scope .definition-wrapper table {
+  width: 100%;
+  margin: 0.25rem auto;
+  overflow-x: auto;
+  border-spacing: 0;
+  overflow: hidden;
+  border-collapse: collapse;
+  border-style: hidden;
+  box-shadow: none;
+  border: none;
+}
+.scope .definition-wrapper td,
+.scope .definition-wrapper th {
+  border: none;
+  padding: 0.5rem;
+  vertical-align: top;
+}
+.scope .definition-wrapper .definition tr > td:first-of-type > p:first-child {
+  text-align: start;
+}
+.scope .fraction {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+.scope .fraction > span {
+  display: block;
+  padding: 0 0.2em;
+}
+.scope .formula {
+  display: inline-block;
+  border: 0.25px solid black;
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 1rem;
+  background-color: #e1e1d6;
+  font-size: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.scope .fraction {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+.scope .numerator,
+.scope .denominator {
+  display: block;
+}
+.scope .denominator {
+  margin-top: 0.5em;
+  border-top: 0.5px solid #000;
+}
+.scope .center {
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .scope .formula {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    margin: 5px auto;
+  }
+  .scope .fraction {
+    display: block;
+    margin: 5px auto 0;
+    /* Updated margin */
+  }
+  .scope .numerator,
+  .scope .denominator {
+    display: block;
+    padding: 5px 0;
+  }
+}
+.scope h3 {
+  color: #2f438d;
+}
+.scope #linktogtl,
+.scope #linktogtl *,
+.scope #gtlnotes h3,
+.scope #gtlnotes h3 * {
+  color: #43af76;
+}
+.scope .linktogtl a {
+  color: #43af76;
+}
+.scope .repeal,
+.scope .repeal *,
+.scope .attention,
+.scope .attention * {
+  color: #c00000;
+  font-weight: 700;
+}
+.scope p {
+  padding: 0.25rem 0;
+  margin: 0.25rem auto;
+  line-height: 1.5rem;
+  text-align: justify;
+}
+@media (max-width: 768px) {
+  .scope p {
+    padding: 0.15rem 0;
+    font-size: 0.9rem;
+  }
+}
+.scope .center {
+  text-align: center;
+}
+.scope a {
+  color: #5948ca;
+  text-decoration: none;
+  font-weight: 600;
+}
+.scope a:hover {
+  text-decoration: underline;
+}
+.scope .italic {
+  font-style: italic;
+}
+.scope .i-color {
+  background-color: bisque;
+}
+.scope .i-icon {
+  min-width: 40px;
+  width: 40px;
+  height: auto;
+  display: block;
+}
+.scope #img-width {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  display: block;
+}
+.scope .td-width {
+  width: 20vw;
+}
+@media (max-width: 1024px) {
+  .scope .td-width {
+    width: 40vw;
+  }
+}
+.scope .i-width {
+  width: 5%;
+}
+.scope .button-width {
+  width: 15%;
+}
+@media (max-width: 768px) {
+  .scope {
+    padding: 0.5vw;
+  }
+}
+
+/*# sourceMappingURL=article.css.map */
